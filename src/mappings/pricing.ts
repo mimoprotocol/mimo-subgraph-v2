@@ -28,7 +28,6 @@ export function getEthPriceInUSD(): BigDecimal {
     return BigDecimal.fromString('0.05')
   }
 }
-
 // token where amounts should contribute to tracked volume and liquidity
 let WHITELIST: string[] = [
   '0xa00744882684c3e4747faefd68d283ea44099d03', // WETH

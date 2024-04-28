@@ -299,7 +299,7 @@ export function handleMint(event: Mint): void {
   // loaded from a previous handler creating this transaction
   // transfer event is emitted first and mint event is emitted afterwards, good to confirm with a protocol eng
   let transaction = Transaction.load(event.transaction.hash.toHexString())
-  if (transaction === null) {
+  if (transaction === null || !transaction.mints.length) {
     return
   }
 
@@ -368,7 +368,7 @@ export function handleBurn(event: Burn): void {
   let transaction = Transaction.load(event.transaction.hash.toHexString())
 
   // safety check
-  if (transaction == null) {
+  if (transaction == null || !transaction.burns.length) {
     return
   }
 
